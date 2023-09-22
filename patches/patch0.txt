@@ -147,7 +147,7 @@ diff --strip-trailing-cr -NBbaur squashfs-tools/error.h squashfs-tools-patched/e
  
 -#ifdef SQUASHFS_TRACE
 +// CJH: Updated so that TRACE prints if -verbose is specified on the command line
-+int verbose;
++extern int verbose;
 +//#ifdef SQUASHFS_TRACE
  #define TRACE(s, args...) \
  		do { \
@@ -12526,7 +12526,7 @@ diff --strip-trailing-cr -NBbaur squashfs-tools/LZMA/lzma465/history.txt squashf
 +
 +4.57           2007-12-12
 +-------------------------
-+- Speed optimizations in Ñ++ LZMA Decoder. 
++- Speed optimizations in Ã‘++ LZMA Decoder. 
 +- Small changes for more compatibility with some C/C++ compilers.
 +
 +
@@ -38320,7 +38320,7 @@ diff --strip-trailing-cr -NBbaur squashfs-tools/unsquashfs.c squashfs-tools-patc
 +//int processors = -1;
 +// CJH: Temporarily set the default processor count to 1 to prevent threading bug
 +//      until a proper fix is implemented.
-+int processors = 1;
++int processors = 1; int verbose = 0;
  
  struct super_block sBlk;
  squashfs_operations s_ops;
@@ -38488,7 +38488,7 @@ diff --strip-trailing-cr -NBbaur squashfs-tools/unsquashfs.c squashfs-tools-patc
 +
 +    // CJH: Notify if endianess is different
 +    if(swap)
-+        ERROR("Reading a different endian SQUASHFS filesystem on %s\n", source);
++        { ERROR("Reading a different endian SQUASHFS filesystem on %s\n", source); }
  
  	/*
  	 * Try to read a Squashfs 4 superblock
